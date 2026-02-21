@@ -6,20 +6,16 @@ import ScopeViewport from "../components/scope/ScopeViewport.jsx";
 import fs from 'node:fs';
 import path from 'node:path';
 
-// 1. Get the 'page' param from the URL (e.g., /?page=about)
 const { searchParams } = Astro.url;
 const pageParam = searchParams.get('source');
 
-// 2. Define our base paths
 const DEFAULT_DOC = "/pages/home.json";
 let documentToLoad = DEFAULT_DOC;
 
 if (pageParam) {
     const fileName = `${pageParam}.json`;
-    // We check the 'public' directory specifically
     const filePath = path.join(process.cwd(), 'public', 'pages', fileName);
 
-    // 3. Check if the file exists on the system
     if (fs.existsSync(filePath)) {
         documentToLoad = `/pages/${fileName}`;
     }

@@ -43,7 +43,7 @@ const ScopeViewport = ({ document }) => {
     <div className="card rounded-none sm:rounded-3xl bg-base-100 p-2 sm:p-4 md:p-4 w-full h-full overflow-y-auto overflow-x-hidden items-center md:max-w-4xl mx-auto">
       <ScopeContainer
         state={status}
-        className="w-full overflow-y-visible p-2 gap-6 md:p-8 md:gap-12"
+        className="w-full overflow-y-visible sm:p-2 gap-6 md:p-8 md:gap-12"
       >
         {status === "idle" && blocks.map((block, index) => {
           const Component = BLOCK_REGISTRY[block.type];
@@ -53,8 +53,7 @@ const ScopeViewport = ({ document }) => {
             return null;
           }
 
-          // Check if actions exist and specifically if there is a download link
-          const hasDownloadAction = block.actions && block.actions.download;
+          const hasActions = block.actions;
 
           return (
             <Component 
@@ -62,8 +61,7 @@ const ScopeViewport = ({ document }) => {
               id={block.id} 
               {...block.props}
             >
-              {/* Only render BlockActions if the download action exists */}
-              {hasDownloadAction && (
+              {hasActions && (
                 <BlockActions>
                   <a 
                     href={block.actions.download}
