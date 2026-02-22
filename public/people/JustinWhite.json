@@ -1,0 +1,11 @@
+{
+  "name": "Justin White",
+  "nameShort": "Justin",
+  "bio": "Founder & CTO of sparkade",
+  "iconUrl": "/media/images/people/JustinWhite.jpg",
+  "socials": [
+    { "platform": "Contact", "url": "mailto:hmu@justinwhite.work", "pinned": true },
+    { "platform": "LinkedIn", "url": "https://www.linkedin.com/in/justinwhitework/", "pinned": true },
+    { "platform": "GitHub", "url": "https://github.com/justinwhitework", "pinned": false }
+  ]
+}

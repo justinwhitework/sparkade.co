@@ -1,4 +1,4 @@
-![LFG Logo](/headerlfg.png)
+![LFG Logo](/media/images/headerlfg.png)
 
 We are thrilled to announce that **Sparkade** has been selected for the prestigious **LFG Accelerator** program. 
 
@@ -11,5 +11,3 @@ This partnership marks a pivotal moment in our journey. Out of a competitive fie
 
 > "Joining the LFG Accelerator isn't just a milestone; it’s a catalyst. Its currently the driving force behind our vision." 
 > — **Justin, Founder & CTO** 🎙️
-
----

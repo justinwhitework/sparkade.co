@@ -10,25 +10,22 @@ const MarkdownRenderer = ({ sourceLocation, children }) => {
   const [hasIntersected, setHasIntersected] = useState(false);
   const containerRef = useRef(null);
 
-  // 1. Observer to trigger "lazy" loading
   useEffect(() => {
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
           setHasIntersected(true);
-          observer.disconnect(); // Stop observing once it's visible
+          observer.disconnect();
         }
       },
-      { rootMargin: "200px" } // Start loading 200px before it hits the screen
+      { rootMargin: "200px" }
     );
 
     if (containerRef.current) observer.observe(containerRef.current);
     return () => observer.disconnect();
   }, []);
 
-  // 2. Data fetching logic
   useEffect(() => {
-    // Only run if the component is in view and we have a location
     if (!hasIntersected || !sourceLocation) {
       if (!sourceLocation) setStatus("failure");
       return;
@@ -52,8 +49,8 @@ const MarkdownRenderer = ({ sourceLocation, children }) => {
   }, [sourceLocation, hasIntersected]);
 
   return (
-    <div ref={containerRef}>
-      <BaseBlock className="transition-all max-w-3xl min-h-8" state={status}>
+    <div ref={containerRef} className="my-4 mb-8">
+      <BaseBlock className="min-h-8" state={status}>
         <div className="md-content">
           <Markdown remarkPlugins={[remarkGfm]}>{markdownContent}</Markdown>
         </div>

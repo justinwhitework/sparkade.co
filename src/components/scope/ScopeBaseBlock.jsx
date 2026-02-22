@@ -28,24 +28,19 @@ const BaseBlock = ({ children, className, state }) => {
             <DropdownMenu>
               <DropdownMenuTrigger asChild>
                 <button className="p-1 bg-transparent">
-                  <LuGripVertical />
+                  <LuGripVertical className="hover:text-base-content text-base-300 transition-all delay-100" />
                 </button>
               </DropdownMenuTrigger>
 
               <DropdownMenuContent className="flex flex-col bg-base-100 border-base-300 text-base-content">
-                <DropdownMenuGroup>
-                  <DropdownMenuLabel className="bg-base-100 border-base-300 text-base-content">
-                    Actions
-                  </DropdownMenuLabel>
-                  {actions
+               {actions
                     .flat()
                     .filter(Boolean)
                     .map((action, i) => (
-                      <DropdownMenuItem key={i} className="bg-base-100 border-base-300 text-base-content">
+                      <>
                         {action}
-                      </DropdownMenuItem>
+                      </>
                     ))}
-                </DropdownMenuGroup>
               </DropdownMenuContent>
             </DropdownMenu>
           )}

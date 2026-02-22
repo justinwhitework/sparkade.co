@@ -20,39 +20,90 @@
   "documentFeedback": [],
   "documentContent": [
     {
-      "type": "markdown",
-      "id": "block_header",
+      "type": "banner",
+      "id": "block_banner",
       "props": {
-        "sourceLocation": "/markdown/generic/header.md"
+        "src": "/media/images/headerbig.png"
       },
       "actions": {
-        "download": "/header.png"
+        "download": "/media/images/header.png"
       }
     },
     {
       "type": "markdown",
       "id": "block_topnav",
       "props": {
-        "sourceLocation": "/markdown/generic/topnav.md"
+        "sourceLocation": "/media/markdown/generic/topnav.md"
       },
       "actions": {
       }
     },
     {
       "type": "markdown",
-      "id": "block_test",
+      "id": "block_home_intro",
       "props": {
-        "sourceLocation": "/markdown/home/section1.md"
+        "sourceLocation": "/media/markdown/home/intro.md"
       },
       "actions": {
-        "download":"/markdown/home/section1.md"
+        "download":"/markdown/home/intro.md"
+      }
+    },
+    {
+      "type": "profile",
+      "id": "block_profile",
+      "props": {
+        "sourceLocation": ["/people/JustinWhite.json","/people/AustinLiu.json"]
+      },
+      "actions": {
+        
+      }
+    },
+    {
+      "type": "markdown",
+      "id": "block_home_vision",
+      "props": {
+        "sourceLocation": "/media/markdown/home/vision.md"
+      },
+      "actions": {
+        "download":"/markdown/home/vision.md"
+      }
+    },
+    {
+      "type": "markdown",
+      "id": "block_home_pillars",
+      "props": {
+        "sourceLocation": "/media/markdown/home/pillars.md"
+      },
+      "actions": {
+        "download":"/markdown/home/pillars.md"
+      }
+    },
+    {
+      "type": "markdown",
+      "id": "block_home_colorama",
+      "props": {
+        "sourceLocation": "/media/markdown/home/colorama.md"
+      },
+      "actions": {
+        "download":"/markdown/home/colorama.md"
+      }
+    },
+    {
+      "visible": false,
+      "type": "markdown",
+      "id": "block_home_lfg",
+      "props": {
+        "sourceLocation": "/media/markdown/home/lfg.md"
+      },
+      "actions": {
+        "download":"/markdown/home/lfg.md"
       }
     },
     {
       "type": "markdown",
       "id": "block_footer",
       "props": {
-        "sourceLocation": "/markdown/generic/footer.md"
+        "sourceLocation": "/media/markdown/generic/footer.md"
       },
       "actions": {}
     }

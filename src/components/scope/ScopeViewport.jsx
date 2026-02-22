@@ -1,11 +1,23 @@
 import React, { useState, useEffect } from "react";
 import ScopeContainer from "./ScopeContainer.jsx";
-import ScopeMarkdown from "./blocks/markdown.jsx";
+import BlockMarkdown from "./blocks/markdown.jsx";
+import BlockProfile from "./blocks/profile.jsx";
+import BlockBanner from "./blocks/banner.jsx";
 import { BlockActions } from "./ScopeBaseBlock.jsx";
 import { TbDownload } from "react-icons/tb";
+import {
+  DropdownMenu,
+  DropdownMenuTrigger,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuGroup,
+  DropdownMenuLabel,
+} from "../ui/dropdown-menu.js";
 
 const BLOCK_REGISTRY = {
-  markdown: ScopeMarkdown,
+  markdown: BlockMarkdown,
+  profile : BlockProfile,
+  banner : BlockBanner,
 };
 
 const ScopeViewport = ({ document }) => {
@@ -40,16 +52,20 @@ const ScopeViewport = ({ document }) => {
   const blocks = content?.documentContent || [];
 
   return (
-    <div className="card rounded-none sm:rounded-3xl bg-base-100 p-2 sm:p-4 md:p-4 w-full h-full overflow-y-auto overflow-x-hidden items-center md:max-w-4xl mx-auto">
+    <div className="card bg-base-100 p-8 md:rounded-2xl rounded-none sm:p-4 md:p-4 w-full h-full overflow-y-auto overflow-x-hidden items-center md:max-w-4xl lg:max-w-5xl mx-auto">
       <ScopeContainer
         state={status}
-        className="w-full overflow-y-visible sm:p-2 gap-6 md:p-8 md:gap-12"
+        className="w-full overflow-y-visible sm:p-2 md:p-8"
       >
         {status === "idle" && blocks.map((block, index) => {
           const Component = BLOCK_REGISTRY[block.type];
 
           if (!Component) {
             console.warn(`[ScopeEngine] Block type "${block.type}" not found.`);
+            return null;
+          }
+
+          if (block.visible == false) {
             return null;
           }
 
@@ -63,7 +79,10 @@ const ScopeViewport = ({ document }) => {
             >
               {hasDownloadActions && (
                 <BlockActions>
-                  <a 
+                  <DropdownMenuGroup>
+                    <DropdownMenuLabel>Actions</DropdownMenuLabel>
+                   <DropdownMenuItem>
+                     <a 
                     href={block.actions.download}
                     download 
                     target="_blank" 
@@ -72,6 +91,8 @@ const ScopeViewport = ({ document }) => {
                   >
                     Download <TbDownload className="w-4 h-4" />
                   </a>
+                   </DropdownMenuItem>
+                  </DropdownMenuGroup>
                 </BlockActions>
               )}
             </Component>

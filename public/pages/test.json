@@ -1,5 +1,5 @@
 {
-  "documentId": "home",
+  "documentId": "test",
   "version": "0.1.0",
   "documentMeta": {
     "title": "Home",
@@ -21,12 +21,32 @@
   "documentContent": [
     {
       "type": "markdown",
-      "id": "block_test",
+      "id": "block_header",
       "props": {
-        "sourceLocation": "/markdown/home.md"
+        "sourceLocation": "/media/markdown/generic/header.md"
       },
       "actions": {
-        "download":"/markdown/home.md"
+        "download": "/media/images/header.png"
+      }
+    },
+    {
+      "type": "banner",
+      "id": "block_banner",
+      "props": {
+        "src": "/media/images/header.png"
+      },
+      "actions": {
+        "download": "/media/images/header.png"
+      }
+    },
+    {
+      "type": "profile",
+      "id": "block_profile",
+      "props": {
+        "sourceLocation": ["/people/JustinWhite.json","/people/JustinWhite.json","/people/JustinWhite.json","/people/JustinWhite.json"]
+      },
+      "actions": {
+        
       }
     }
   ]

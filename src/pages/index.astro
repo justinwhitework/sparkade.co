@@ -13,17 +13,22 @@ const DEFAULT_DOC = "/pages/home.json";
 let documentToLoad = DEFAULT_DOC;
 
 if (pageParam) {
-    const fileName = `${pageParam}.json`;
-    const filePath = path.join(process.cwd(), 'public', 'pages', fileName);
+    const safePageName = pageParam.replace(/[^a-zA-Z0-9-_]/g, '');
+    
+    const fileName = `${safePageName}.json`;
+    const publicPagesDir = path.join(process.cwd(), 'public', 'pages');
+    const filePath = path.join(publicPagesDir, fileName);
 
-    if (fs.existsSync(filePath)) {
+    if (fs.existsSync(filePath) && filePath.startsWith(publicPagesDir)) {
         documentToLoad = `/pages/${fileName}`;
+    } else {
+        console.warn(`Attempted access to invalid or missing page: ${fileName}`);
     }
 }
 ---
 
-<RootLayout class="bg-[url('/pagebg.svg')] bg-cover bg-center bg-no-repeat items-center justify-center gap-8 sm:p-8">
-
-    <ScopeViewport document={documentToLoad} client:load/>
-
+<RootLayout class="bg-base-content bg-[url('/media/images/pagebg.svg')] bg-cover bg-center bg-no-repeat items-center justify-center gap-8">
+    <div class="flex flex-col flex-1 min-w-0 overflow-y-auto overflow-x-hidden md:rounded-2xl lg:rounded-3xl w-full h-full md:p-4 lg:p-8">
+        <ScopeViewport document={documentToLoad} client:load/>
+    </div>
 </RootLayout>

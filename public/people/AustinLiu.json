@@ -1,0 +1,10 @@
+{
+  "name": "Austin Liu",
+  "nameShort": "Austin",
+  "bio": "Cofounder & COO of sparkade",
+  "iconUrl": "/media/images/people/AustinLiu.jpg",
+  "socials": [
+    { "platform": "LinkedIn", "url": "https://www.linkedin.com/in/austin-liu-74a9b0261/", "pinned": true },
+    { "platform": "GitHub", "url": "...", "pinned": false }
+  ]
+}
