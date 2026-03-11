@@ -87,6 +87,7 @@
       "actions": {}
     },
     {
+      "visible": false,
       "type": "markdown",
       "id": "block_home_lfg",
       "props": {
